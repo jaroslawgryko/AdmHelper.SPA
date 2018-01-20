@@ -32,8 +32,9 @@ import { AlertifyService } from '../_services/Alertify.service';
    }
 
    loggedIn() {
-     const token = localStorage.getItem('token');
-     return !!token;
+    //  const token = localStorage.getItem('token');
+    //  return !!token;
+     return this.authService.loggedIn();
    }
 
  }
