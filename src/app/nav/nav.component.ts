@@ -15,16 +15,16 @@ import { AuthService } from './../_services/auth.service';
    ngOnInit() {
    }
 
-   login(){
+   login() {
      // console.log(this.model);
      this.authService.login(this.model).subscribe(data => {
        console.log('logged in successfully');
      }, error => {
-       console.log('failed to login');
+       console.log(error);
      });
    }
 
-   logout(){
+   logout() {
      this.authService.userToken = null;
      localStorage.removeItem('token');
      console.log('logged out');
