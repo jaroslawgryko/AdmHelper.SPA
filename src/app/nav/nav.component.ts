@@ -1,6 +1,7 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../_services/auth.service';
- import { Component, OnInit } from '@angular/core';
-import { AlertifyService } from '../_services/Alertify.service';
+import { AlertifyService } from '../_services/alertify.service';
+import { Component, OnInit } from '@angular/core';
 
  @Component({
    selector: 'app-nav',
@@ -11,7 +12,10 @@ import { AlertifyService } from '../_services/Alertify.service';
 
    model: any = {};
 
-   constructor(private authService: AuthService, private alertify: AlertifyService) { }
+   constructor(
+      private authService: AuthService,
+      private alertify: AlertifyService,
+      private router: Router) { }
 
    ngOnInit() {
    }
@@ -19,16 +23,19 @@ import { AlertifyService } from '../_services/Alertify.service';
    login() {
      // console.log(this.model);
      this.authService.login(this.model).subscribe(data => {
-      this.alertify.success('logged in successfully');
+      this.alertify.success('Zalogowałeś się');
      }, error => {
-      this.alertify.error(error);
+      this.alertify.error('Błąd logowania');
+     }, () => {
+       this.router.navigate(['/members']);
      });
    }
 
    logout() {
      this.authService.userToken = null;
      localStorage.removeItem('token');
-     this.alertify.message('logged out');
+     this.alertify.message('Wylogowałeś się');
+     this.router.navigate(['/home']);
    }
 
    loggedIn() {
