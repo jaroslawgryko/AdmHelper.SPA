@@ -23,6 +23,8 @@ import { StrukturaComponent } from './struktura/struktura.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { AuthModule } from './auth/auth.module';
+import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
+import { MemberListResolver } from './_resolvers/member-list.resolver';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { AuthModule } from './auth/auth.module';
     AuthService,
     AlertifyService,
     AuthGuard,
-    UserService
+    UserService,
+    MemberListResolver,
+    MemberDetailResolver,
   ],
   bootstrap: [AppComponent]
 })
