@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h1>Profil: {{user.username}}</h1>
+    <h2>Administrator: {{user.username}}</h2>
   </div>
 
   <div class="row">
@@ -13,14 +13,14 @@
           </div>          
           <div>
             <strong>Instytucja:</strong>
-            <p>{{user.jednostkaNazwa}}</p>
+            <p>{{user.instytucjaNazwa}}</p>
           </div>
           <div>
             <strong>Ostatnia modyfikacja:</strong>
             <p>{{user.dataModyfikacji }}</p>
           </div>
         </div>
-        <div class="panel-footer">
+        <!-- <div class="panel-footer">
           <div class="btn-group-justified">
             <div class="btn-group">
               <button class="btn btn-primary">A1</button>
@@ -29,25 +29,19 @@
               <button class="btn btn-success">A2</button>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="col-sm-8">
       <div class="tab-panel">
         <tabset class="member-tabset">
-          <tab heading="Dane">
+          <tab heading="Dane rejestracyjne">
             <h4>Email:</h4>
             <p>{{user.email}}</p>
             <h4>Instytucja:</h4>
-            <p>{{user.jednostkaNazwa}}</p>
-          </tab>
-          <tab heading="Instytucja">
-            <h4>Nazwa:</h4>
-            <p>tutaj nazwa</p>
-            <h4>Symbol:</h4>
-            <p>tutaj symbol</p>
-            <h4>Opis:</h4>
-            <p>tutaj opis</p>
+            <p><strong>Nazwa:</strong> {{user.instytucjaNazwa}}</p>
+            <p><strong>Symbol:</strong> {{user.instytucjaSymbol}}</p>
+            <p><strong>Opis:</strong> {{user.instytucjaOpis}}</p>
           </tab>
           <tab heading="Jednostki">
             <p>tutaj zmiana jednostki głównej</p>

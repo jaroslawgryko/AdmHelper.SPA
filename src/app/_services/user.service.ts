@@ -26,16 +26,20 @@ export class UserService {
         .get(this.baseUrl + 'users/' + id)
         .map(response => <User>response.json())
         .catch(this.handleError);
-   }
-
-    private jwt() {
-        const token = localStorage.getItem('token');
-        if (token) {
-            const headers = new Headers({'Authorization': 'Bearer ' + token});
-            headers.append('Content-type', 'application/json');
-            return new RequestOptions({headers: headers});
-        }
     }
+
+    updateUser(id: number, user: User) {
+      return this.authHttp.put(this.baseUrl +  'users/' + id, user).catch(this.handleError);
+    }
+
+    // private jwt() {
+    //     const token = localStorage.getItem('token');
+    //     if (token) {
+    //         const headers = new Headers({'Authorization': 'Bearer ' + token});
+    //         headers.append('Content-type', 'application/json');
+    //         return new RequestOptions({headers: headers});
+    //     }
+    // }
 
     private handleError(error: any) {
         const applicationError = error.headers.get('Application-Error');

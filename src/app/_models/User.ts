@@ -4,7 +4,9 @@ export interface User {
     id: number;
     username: string;
     email: string;
-    jednostkaNazwa: string;
     dataModyfikacji: Date;
+    instytucjaNazwa: string;
+    instytucjaSymbol: string;
+    instytucjaOpis: string;
     jednostki?: Jednostka[];
 }

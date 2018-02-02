@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>Twój profil</h2>
+    </div>
+    <div class="col-sm-8">
+      <div class="alert alert-info" [hidden]="!editForm.dirty">
+        <p><strong>Informacja:</strong> Dokonałeś zmian. Niezapisane dane zostaną utracone!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-default">      
+        <div class="panel-body">
+          <div>
+            <strong>Email:</strong>
+            <p>{{user.email}}</p>
+          </div>          
+          <div>
+            <strong>Instytucja:</strong>
+            <p>{{user.instytucjaNazwa}}</p>
+          </div>
+          <div>
+            <strong>Ostatnia modyfikacja:</strong>
+            <p>{{user.dataModyfikacji }}</p>
+          </div>
+        </div>
+        <div class="panel-footer">
+            <button [disabled]="!editForm.dirty" form="editFormForButton" class="btn btn-success btn-block">Save Changes</button>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="Edycja danych">
+            <form #editForm="ngForm" id="editFormForButton" (ngSubmit)="updateUser()">
+              <h4>Email:</h4>
+              <input type="text" class="form-control" name="email" [(ngModel)]="user.email">
+              <h4>Instytucja:</h4>
+              <label for="instytucjaNazwa">Nazwa</label>
+              <input type="text" class="form-control" name="instytucjaNazwa" [(ngModel)]="user.instytucjaNazwa">
+              <label for="instytucjaSymbol">Symbol</label>
+              <input type="text" class="form-control" name="instytucjaSymbol" [(ngModel)]="user.instytucjaSymbol">
+              <label for="instytucjaOpis">Opis</label>
+              <input type="text" class="form-control" name="instytucjaOpis" [(ngModel)]="user.instytucjaOpis">                          
+            </form>
+          </tab>
+          <tab heading="Jednostki">
+            <p>tutaj zmiana jednostki głównej</p>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>

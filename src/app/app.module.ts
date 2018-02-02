@@ -18,6 +18,7 @@ import { RwaComponent } from './rwa/rwa.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { CsvComponent } from './csv/csv.component';
 import { StrukturaComponent } from './struktura/struktura.component';
 import { RouterModule } from '@angular/router';
@@ -25,6 +26,8 @@ import { appRoutes } from './routes';
 import { AuthModule } from './auth/auth.module';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-chages.guard';
 
 
 @NgModule({
@@ -37,6 +40,7 @@ import { MemberListResolver } from './_resolvers/member-list.resolver';
     MemberListComponent,
     MemberCardComponent,
     MemberDetailComponent,
+    MemberEditComponent,
     CsvComponent,
     StrukturaComponent
 ],
@@ -53,9 +57,11 @@ import { MemberListResolver } from './_resolvers/member-list.resolver';
     AuthService,
     AlertifyService,
     AuthGuard,
+    PreventUnsavedChanges,
     UserService,
     MemberListResolver,
     MemberDetailResolver,
+    MemberEditResolver
   ],
   bootstrap: [AppComponent]
 })
