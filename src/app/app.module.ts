@@ -13,7 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RwaComponent } from './rwa/rwa.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
@@ -48,6 +48,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-chages.guard';
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     AuthModule,
